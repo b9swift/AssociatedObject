@@ -6,23 +6,13 @@
 [![gitee 镜像](https://img.shields.io/badge/%E9%95%9C%E5%83%8F-gitee-C61E22.svg?style=flat-square)](https://gitee.com/b9swift/AssociatedObject)
 [![GitHub Source](https://img.shields.io/badge/Source-GitHub-24292F.svg?style=flat-square)](https://github.com/b9swift/AssociatedObject)
 
-Objective-C associated object 的 Swift 封装。
-
 Objective-C associated value wrapper.
-
-## 集成
-
-使用 Swift Package Manager 或手工导入。
-
-You can also use [GitHub source](https://github.com/b9swift/AssociatedObject).
 
 ## Installation
 
 Using Swift Package Manager or import manually.
 
 你也可以使用 [gitee 镜像](https://gitee.com/b9swift/AssociatedObject)。
-
-## 使用
 
 ## Usage
 
