@@ -1,5 +1,5 @@
 /*
- AssociatedObject.swift
+ B9AssociatedObject.swift
 
  Copyright © 2020-2021 RFUI.
  https://github.com/b9swift/AssociatedObject
@@ -37,7 +37,11 @@ public final class AssociatedObject<T> {
     /// Accesses the associated value.
     /// - Parameter index: The source object for the association.
     public subscript(index: AnyObject) -> T? {
-        get { objc_getAssociatedObject(index, Unmanaged.passUnretained(self).toOpaque()) as? T }
-        set { objc_setAssociatedObject(index, Unmanaged.passUnretained(self).toOpaque(), newValue, policy) }
+        get {
+            objc_getAssociatedObject(index, Unmanaged.passUnretained(self).toOpaque()) as? T
+        }
+        set {
+            objc_setAssociatedObject(index, Unmanaged.passUnretained(self).toOpaque(), newValue, policy)
+        }
     }
 }
