@@ -6,7 +6,7 @@
 [![gitee 镜像](https://img.shields.io/badge/%E9%95%9C%E5%83%8F-gitee-C61E22.svg?style=flat-square)](https://gitee.com/b9swift/AssociatedObject)
 [![GitHub Source](https://img.shields.io/badge/Source-GitHub-24292F.svg?style=flat-square)](https://github.com/b9swift/AssociatedObject)
 
-Objective-C associated value wrapper.
+Objective-C associated value wrapper in Swift.
 
 ## Installation
 
@@ -16,7 +16,11 @@ Using Swift Package Manager or import manually.
 
 ## Usage
 
+You can define extended properties like below. All kinds of Swift types are also supported, not only Objective-C objects.
+
 ```swift
+import B9AssociatedObject
+
 private let fooAssociation = AssociatedObject<String>()
 extension SomeObject {
     var foo: String? {
