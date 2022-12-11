@@ -1,7 +1,7 @@
 /*
  B9AssociatedObject.swift
 
- Copyright © 2020-2021 RFUI.
+ Copyright © 2020-2022 BB9z.
  https://github.com/b9swift/AssociatedObject
 
  The MIT License
@@ -11,9 +11,10 @@
 import Foundation
 
 /**
- Objective-C associated value wrapper.
+ Objective-C associated value wrapper for convenient use in Swift.
+ It is primarily used to add attributes to existing types through extensions.
 
- Usage
+ Usage:
 
  ```
  private let fooAssociation = AssociatedObject<String>()
