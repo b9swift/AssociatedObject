@@ -1,0 +1,21 @@
+name: Swift Package
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: SPM Build
+      run: swift build
+    - name: SPM Test
+      run: swift test
+    - name: macOS Build
+      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=macOS' | xcbeautify
+    - name: iOS Build
+      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=iOS' | xcbeautify
+    - name: tvOS Build
+      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=tvOS' | xcbeautify
+    - name: watchOS Build
+      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=watchOS' | xcbeautify
