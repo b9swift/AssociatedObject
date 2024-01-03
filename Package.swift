@@ -3,26 +3,34 @@
 
 import PackageDescription
 
+let mainName = "B9AssociatedObject"
+
+// https://developer.apple.com/documentation/packagedescription/package
 let package = Package(
-    name: "B9AssociatedObject",
+    name: mainName,
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
+        // Products define the executables and libraries a package produces, making them visible to other packages.
+        // https://developer.apple.com/documentation/packagedescription/product
         .library(
-            name: "B9AssociatedObject",
-            targets: ["B9AssociatedObject"]),
+            name: mainName,
+            targets: [mainName])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
+        // https://developer.apple.com/documentation/packagedescription/target/dependency
         // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
+        // https://developer.apple.com/documentation/packagedescription/target
         .target(
-            name: "B9AssociatedObject",
+            name: mainName,
             dependencies: []),
         .testTarget(
-            name: "MainTests",
-            dependencies: ["B9AssociatedObject"]),
+            name: mainName + "Tests",
+            dependencies: [
+                Target.Dependency(stringLiteral: mainName),
+            ]),
     ]
 )
