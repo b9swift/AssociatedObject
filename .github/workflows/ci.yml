@@ -3,19 +3,28 @@ name: Swift Package
 on: [push, pull_request]
 
 jobs:
-  build:
-    runs-on: macos-latest
+  spm:
+    runs-on: macos-13
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: SPM Build
       run: swift build
     - name: SPM Test
       run: swift test
-    - name: macOS Build
-      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=macOS' | xcbeautify
-    - name: iOS Build
-      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=iOS' | xcbeautify
-    - name: tvOS Build
-      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=tvOS' | xcbeautify
-    - name: watchOS Build
-      run: xcodebuild build -scheme B9AssociatedObject -destination 'generic/platform=watchOS' | xcbeautify
+
+  xcode:
+    runs-on: macos-13
+    name: "Xcode - ${{ matrix.platform }}"
+    strategy:
+      matrix:
+        include:
+        - platform: macOS
+        - platform: iOS
+        - platform: tvOS
+        - platform: watchOS
+    steps:
+    - uses: actions/checkout@v4
+    - name: "${{ matrix.platform }} Build"
+      run: |
+        set -o pipefail
+        xcodebuild build -scheme B9AssociatedObject -destination "generic/platform=${{ matrix.platform }}" | xcbeautify
